@@ -256,6 +256,7 @@
     "LOG": "服务日志",
     "PROMETHEUS": "集群指标",
     "GRAFANA": "系统监控",
+    "OLDDASHBOARD": "老版控制台",
     "ALTERMANATER": "告警管理",
     "SKYWALKING": "性能分析",
     "KUBEVIEW": "平台概览",
