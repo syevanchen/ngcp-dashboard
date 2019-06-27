@@ -1,8 +1,8 @@
 export const defaultResources: Resources = {
   cpuLimit: 12,
-  cpuRequestLimitPercent: 50,
+  cpuRequestLimitPercent: 3,
   memoryLimit: 64,
-  memoryRequestLimitPercent: 100,
+  memoryRequestLimitPercent: 3,
   replicaLimit: 32,
 };
 

@@ -1,4 +1,14 @@
 <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.KUBEVIEW' | translate"
+    href="http://172.20.27.219:24954/"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="network-switch"></clr-icon>
+    {{'MENU.KUBEVIEW' | translate}}
+  </a>
   <a
     clrVerticalNavLink
     [title]="'MENU.DEPARTMENT' | translate"
@@ -6,6 +16,16 @@
     routerLinkActive="active">
     <clr-icon clrVerticalNavIcon shape="help-info"></clr-icon>
     {{'MENU.DEPARTMENT' | translate}}
+  </a>
+  <div class="nav-divider"></div>
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.KUBEAPPS' | translate"
+    href="https://192.168.112.26:3045/appcatalog/#/apps/ns/default"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="blocks-group"></clr-icon>
+    {{'MENU.KUBEAPPS' | translate}}
   </a>
   <a
     clrVerticalNavLink
@@ -17,22 +37,69 @@
   </a>
   <a
     clrVerticalNavLink
-    title="APIKeys"
-    routerLink="/portal/namespace/{{cacheService.currentNamespace?.id}}/apikey"
-    routerLinkActive="active"
-    *ngIf="this.authService.config['enableApiKeys'] && (authService.currentNamespacePermission.apiKey.read || authService.currentUser.admin)">
-    <clr-icon clrVerticalNavIcon shape="key"></clr-icon>
-    APIKeys
+    [title]="'MENU.LOG' | translate"
+    href="https://192.168.112.26:3045/log/app/logtrail#/?q=kubernetes.container.name:httpbin&h=All&t=Now&i=filebeat-*&_g=()"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="clock"></clr-icon>
+    {{'MENU.LOG' | translate}}
+  </a>
+  <!--<a-->
+    <!--clrVerticalNavLink-->
+    <!--title="APIKeys"-->
+    <!--routerLink="/portal/namespace/{{cacheService.currentNamespace?.id}}/apikey"-->
+    <!--routerLinkActive="active"-->
+    <!--*ngIf="this.authService.config['enableApiKeys'] && (authService.currentNamespacePermission.apiKey.read || authService.currentUser.admin)">-->
+    <!--<clr-icon clrVerticalNavIcon shape="key"></clr-icon>-->
+    <!--APIKeys-->
+  <!--</a>-->
+  <!--<a-->
+    <!--clrVerticalNavLink-->
+    <!--title="Webhooks"-->
+    <!--routerLink="/portal/namespace/{{cacheService.currentNamespace?.id}}/webhook"-->
+    <!--routerLinkActive="active"-->
+    <!--*ngIf="authService.currentNamespacePermission.webHook.read || authService.currentUser.admin">-->
+    <!--<clr-icon clrVerticalNavIcon shape="pin"></clr-icon>-->
+    <!--Webhooks-->
+  <!--</a>-->
+  <div class="nav-divider" ></div>
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.PROMETHEUS' | translate"
+    href="https://192.168.112.26:3045/prometheus/"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="network-globe"></clr-icon>
+    {{'MENU.PROMETHEUS' | translate}}
   </a>
   <a
     clrVerticalNavLink
-    title="Webhooks"
-    routerLink="/portal/namespace/{{cacheService.currentNamespace?.id}}/webhook"
-    routerLinkActive="active"
-    *ngIf="authService.currentNamespacePermission.webHook.read || authService.currentUser.admin">
-    <clr-icon clrVerticalNavIcon shape="pin"></clr-icon>
-    Webhooks
+    [title]="'MENU.GRAFANA' | translate"
+    href="https://192.168.112.26:3045/grafana/"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="image-gallery"></clr-icon>
+    {{'MENU.GRAFANA' | translate}}
   </a>
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.ALTERMANATER' | translate"
+    href="https://192.168.112.26:3045/alertmanager/#/alerts"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="bell"></clr-icon>
+    {{'MENU.ALTERMANATER' | translate}}
+  </a>
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.SKYWALKING' | translate"
+    href="http://172.20.27.219:15082/#/monitor/dashboard"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="vmw-app"></clr-icon>
+    {{'MENU.SKYWALKING' | translate}}
+  </a>
+  <div class="nav-divider" ></div>
   <a
     clrVerticalNavLink
     [title]="'MENU.MEMBER' | translate"
@@ -41,6 +108,15 @@
     routerLinkActive="active">
     <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
     {{'MENU.MEMBER' | translate}}
+  </a>
+  <a
+    clrVerticalNavLink
+    [title]="'MENU.OLDDASHBOARD' | translate"
+    href="https://192.168.112.26:3045/dashboard/#!/login"
+    target="_blank"
+    routerLinkActive="active">
+    <clr-icon clrVerticalNavIcon shape="vmw-app"></clr-icon>
+    {{'MENU.OLDDASHBOARD' | translate}}
   </a>
   <a href="javascript:;" style="flex: 1;"></a>
   <wayne-footer></wayne-footer>

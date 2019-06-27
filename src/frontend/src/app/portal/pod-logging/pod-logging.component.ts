@@ -86,6 +86,9 @@ export class PodLoggingComponent implements OnInit, OnDestroy {
         this.messageHandlerService.handleError(error);
       }
     );
+    // setInterval(() => {
+    //   this.refreshLog();
+    // }, 5000);
   }
 
   copyLogCommand() {

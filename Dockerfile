@@ -13,22 +13,20 @@ COPY src/frontend /workspace
 RUN sed -i  "s~__ravenDsn__~${RAVEN_DSN}~g" /workspace/src/environments/environment.prod.ts
 
 RUN cd /workspace && \
-       npm config set registry https://registry.npm.taobao.org && \
-       npm install && \
-       npm run build
+       npm config set registry https://registry.npm.taobao.org
 
 # build server
-FROM 360cloud/wayne-server-builder:v1.0.0 as backend
+FROM 360cloud/wayne-server-builder:v1.0.1 as backend
 
-COPY src/vendor /go/src/github.com/Qihoo360/wayne/src/vendor
+COPY vendor /go/src/github.com/Qihoo360/wayne/vendor
 
 COPY src/backend /go/src/github.com/Qihoo360/wayne/src/backend
 
 RUN rm -rf /go/src/github.com/Qihoo360/wayne/src/backend/static
 
-COPY --from=frontend /workspace/dist/ /go/src/github.com/Qihoo360/wayne/src/backend/static/
+COPY src/frontend/dist/ /go/src/github.com/Qihoo360/wayne/src/backend/static/
 
-COPY --from=frontend /workspace/dist/index.html /go/src/github.com/Qihoo360/wayne/src/backend/views/
+COPY src/frontend/dist/index.html /go/src/github.com/Qihoo360/wayne/src/backend/views/
 
 RUN cd /go/src/github.com/Qihoo360/wayne/src/backend && bee generate docs && bee pack -o /_build
 
