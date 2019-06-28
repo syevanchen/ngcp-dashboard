@@ -39,7 +39,7 @@ export class IngressTplComponent implements OnInit, OnDestroy {
     this.subscription = deletionDialogService.confirmationConfirm$.subscribe(message => {
       if (message &&
         message.state === ConfirmationState.CONFIRMED &&
-        message.source === ConfirmationTargets.SERVICE_TPL) {
+        message.source === ConfirmationTargets.INGRESS_TPL) {
         const id = message.data;
         this.ingressTplService.deleteById(id, 0)
           .subscribe(
